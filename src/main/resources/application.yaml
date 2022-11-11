@@ -1,0 +1,33 @@
+spring:
+  profiles: default
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/atid?serverTimezone=UTC&characterEncoding=UTF-8
+    username: atid
+    password: wjdgid0103
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: create
+  # mvc:
+  #   hiddenmethod:
+  #     filter:
+  #       enabled: true
+  feign:
+    hystrix:
+      enabled: true
+  hystrix:
+    command:
+      # 전역설정
+      default:
+        execution.isolation.thread.timeoutInMilliseconds: 610
+logging:
+  level:
+    org.hibernate.type: trace
+    org.apache.kafka: OFF
+    org.springframework.cloud: OFF
+server:
+  port: 8085
